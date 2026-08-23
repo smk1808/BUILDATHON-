@@ -1,0 +1,50 @@
+.interview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+.int-cats { display: flex; flex-direction: column; gap: 8px; }
+.int-cat {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1.5px solid rgba(255,255,255,0.07);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-sub);
+  transition: all 0.2s;
+}
+.int-cat:hover { background: rgba(124,58,237,0.1); border-color: rgba(124,58,237,0.3); color: #fff; }
+.int-cat.active { background: rgba(124,58,237,0.18); border-color: var(--purple); color: var(--purple-light); }
+.int-q-count { font-size: 11px; font-weight: 700; background: rgba(124,58,237,0.2); color: var(--purple-light); padding: 2px 8px; border-radius: 100px; }
+
+.int-history { display: flex; flex-direction: column; gap: 10px; }
+.int-hist-row { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: rgba(255,255,255,0.03); border-radius: 8px; }
+.int-hist-topic { font-size: 13px; color: var(--text); font-weight: 500; }
+.int-hist-score { font-size: 14px; font-weight: 800; }
+.int-hist-score.good { color: var(--green); }
+.int-hist-score.mid { color: var(--amber); }
+.int-hist-score.low { color: var(--red); }
+
+.iq-num { font-size: 12px; font-weight: 700; color: var(--purple-light); letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 12px; }
+.iq-text {
+  font-size: 17px; font-weight: 600; color: #fff; line-height: 1.5;
+  padding: 20px; background: rgba(124,58,237,0.08); border: 1px solid rgba(124,58,237,0.2);
+  border-radius: 12px; margin-bottom: 20px;
+}
+.iq-answer {
+  width: 100%; min-height: 120px; padding: 14px;
+  background: rgba(255,255,255,0.04); border: 1.5px solid rgba(255,255,255,0.08);
+  border-radius: 12px; color: var(--text); font-size: 14px; font-family: 'Inter', sans-serif;
+  resize: vertical; outline: none; transition: border 0.2s; margin-bottom: 16px;
+}
+.iq-answer:focus { border-color: var(--purple); }
+.iq-actions { display: flex; gap: 12px; justify-content: flex-end; }
+
+.ai-feedback {
+  margin-top: 20px; padding: 20px;
+  background: rgba(6,182,212,0.08); border: 1px solid rgba(6,182,212,0.2);
+  border-radius: 12px;
+}
+.af-header { font-size: 14px; font-weight: 700; color: var(--cyan); margin-bottom: 12px; }
+.af-body { font-size: 14px; color: var(--text-sub); line-height: 1.7; }
+
+@media (max-width: 768px) { .interview-grid { grid-template-columns: 1fr; } }
