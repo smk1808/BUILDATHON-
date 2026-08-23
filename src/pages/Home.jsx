@@ -52,7 +52,7 @@ const STEPS = [
 ]
 
 const TESTIMONIALS = [
-  { name: 'Priya Nair', role: 'ML Engineer @ Google', avatar: 'PN', text: 'CareerAI helped me pivot from backend dev to ML in just 8 months. The roadmap was incredibly precise and the AI advisor was like having a personal career coach!', rating: 5 },
+  { name: 'Priya Nair', role: 'ML Engineer @ Google', avatar: 'PN', text: 'LaunchPad helped me pivot from backend dev to ML in just 8 months. The roadmap was incredibly precise and the AI advisor was like having a personal career coach!', rating: 5 },
   { name: 'Rahul Verma', role: 'Data Scientist @ Flipkart', avatar: 'RV', text: 'The skill gap analysis was an eye-opener. It told me exactly which skills I was missing and recommended the perfect courses. Got a 3x salary hike!', rating: 5 },
   { name: 'Sneha Gupta', role: 'Product Manager @ Razorpay', avatar: 'SG', text: 'The AI advisor is incredible. It gave me a 6-month roadmap that actually worked. I landed my dream PM role in exactly the time it predicted!', rating: 5 },
 ]
@@ -74,10 +74,10 @@ export default function Home() {
           <div className="hero-content fade-up">
             <div className="hero-badge">
               <span className="badge-dot"></span>
-              AI-Powered Career Intelligence Platform
+              AI-Powered Career Intelligence Platform 🚀
             </div>
             <h1 className="hero-title">
-              Your <span className="gradient-text">Dream Career</span><br />Starts Here
+              Your <span className="gradient-text">Dream Career</span><br />Starts on LaunchPad
             </h1>
             <p className="hero-subtitle">
               Get hyper-personalized career guidance, skill gap analysis, course recommendations, and job opportunities — all powered by advanced AI agents tailored just for you.
@@ -207,8 +207,8 @@ export default function Home() {
       <section className="cta-section">
         <div className="cta-inner">
           <div className="cta-orb"></div>
-          <h2>Ready to Transform Your Career?</h2>
-          <p>Join 50,000+ professionals who've found their dream career with CareerAI.</p>
+          <h2>Ready to Launch Your Dream Career?</h2>
+          <p>Join 50,000+ professionals who've launched their dream career with LaunchPad.</p>
           <button className="btn-primary btn-lg" onClick={() => navigate('/onboarding')}>
             Start For Free →
           </button>
@@ -218,7 +218,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="footer">
         <div className="container">
-          <div className="footer-brand">Career<span>AI</span></div>
+          <div className="footer-brand">Launch<span>Pad</span></div>
           <p className="footer-sub">One-stop Personalized Career & Educational Advisory</p>
           <div className="footer-links">
             <span onClick={() => navigate('/advisor')}>AI Advisor</span>
@@ -226,7 +226,7 @@ export default function Home() {
             <span onClick={() => navigate('/jobs')}>Jobs</span>
             <span onClick={() => navigate('/dashboard')}>Dashboard</span>
           </div>
-          <div className="footer-copy">© 2026 CareerAI. Built with ❤️ for Buildathon.</div>
+          <div className="footer-copy">© 2026 LaunchPad. Built with ❤️ for Buildathon.</div>
         </div>
       </footer>
     </div>

@@ -39,7 +39,7 @@ export default function Navbar() {
               </defs>
             </svg>
           </div>
-          <span className="logo-text">Career<span className="logo-accent">AI</span></span>
+          <span className="logo-text">Launch<span className="logo-accent">Pad</span></span>
         </div>
 
         <ul className={`nav-links ${menuOpen ? 'open' : ''}`}>
