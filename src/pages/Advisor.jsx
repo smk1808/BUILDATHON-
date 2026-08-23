@@ -169,7 +169,7 @@ export default function Advisor() {
   const [messages, setMessages] = useState([
     {
       role: 'ai',
-      text: `## 👋 Hello! I'm your AI Career Advisor
+      text: `## 👋 Hello! I'm your LaunchPad AI Advisor
 
 I'm powered by advanced AI to give you personalized career guidance.
 
@@ -208,10 +208,10 @@ I can help you with:
     <div className="advisor-page">
       {/* SIDEBAR */}
       <div className="adv-sidebar">
-        <div className="adv-brand" onClick={() => navigate('/')}>Career<span>AI</span></div>
+        <div className="adv-brand" onClick={() => navigate('/')}>Launch<span>Pad</span></div>
         <div className="adv-info">
           <div className="adv-avatar">🤖</div>
-          <div className="adv-name">CareerAI Assistant</div>
+          <div className="adv-name">LaunchPad AI Assistant</div>
           <div className="adv-status"><span className="adv-dot"></span>Online · Powered by Gemini</div>
         </div>
         <div className="adv-suggestions">
@@ -231,7 +231,7 @@ I can help you with:
       <div className="adv-chat">
         <div className="chat-header">
           <div className="ch-info">
-            <div className="ch-name">AI Career Advisor</div>
+            <div className="ch-name">LaunchPad AI Advisor</div>
             <div className="ch-sub">Personalized · Real-time · Always available</div>
           </div>
           <button className="btn-ghost ch-clear" onClick={() => setMessages([messages[0]])}>Clear Chat</button>

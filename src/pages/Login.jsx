@@ -26,9 +26,9 @@ export default function Login() {
         <div className="lv-orb lv-orb2"></div>
         <div className="lv-grid"></div>
         <div className="lv-content">
-          <div className="lv-logo">Career<span>AI</span></div>
-          <div className="lv-quote">"The best investment you can make is in yourself."</div>
-          <div className="lv-author">— Warren Buffett</div>
+          <div className="lv-logo">Launch<span>Pad</span></div>
+          <div className="lv-quote">"Every great launch begins with a single step forward."</div>
+          <div className="lv-author">— LaunchPad Ethos</div>
           <div className="lv-stats">
             <div className="lv-stat"><span className="lv-stat-num">50K+</span><span className="lv-stat-label">Users</span></div>
             <div className="lv-stat"><span className="lv-stat-num">98%</span><span className="lv-stat-label">Satisfaction</span></div>

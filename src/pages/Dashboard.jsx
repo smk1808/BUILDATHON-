@@ -31,7 +31,7 @@ export default function Dashboard() {
     <div className="dashboard-root">
       {/* SIDEBAR */}
       <aside className="db-sidebar">
-        <div className="db-brand" onClick={() => navigate('/')}>Career<span>AI</span></div>
+        <div className="db-brand" onClick={() => navigate('/')}>Launch<span>Pad</span></div>
 
         <div className="db-user">
           <div className="db-avatar">{user?.name?.split(' ').map(n=>n[0]).join('') || 'AS'}</div>

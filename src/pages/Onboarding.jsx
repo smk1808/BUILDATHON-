@@ -87,7 +87,7 @@ export default function Onboarding() {
   return (
     <div className="onboard-page">
       <div className="onboard-header">
-        <div className="ob-logo" onClick={() => navigate('/')}>Career<span>AI</span></div>
+        <div className="ob-logo" onClick={() => navigate('/')}>Launch<span>Pad</span></div>
         <div className="step-indicator">
           {Array.from({ length: totalSteps }).map((_, i) => (
             <div key={i} className="si-wrap">
