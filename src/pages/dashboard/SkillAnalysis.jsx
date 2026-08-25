@@ -1,4 +1,14 @@
 import { useNavigate } from 'react-router-dom'
+import {
+  CheckCircle2,
+  RefreshCw,
+  AlertCircle,
+  GraduationCap,
+  Wrench,
+  Cpu,
+  Zap,
+  Sparkles
+} from 'lucide-react'
 import './SkillAnalysis.css'
 
 const STRONG = [
@@ -11,9 +21,9 @@ const GAPS = [
   { name: 'Deep Learning', pct: 20 }, { name: 'PyTorch', pct: 10 }, { name: 'MLOps', pct: 15 }, { name: 'LLMs / GenAI', pct: 5 },
 ]
 const RECS = [
-  { icon: '🎓', title: 'Deep Learning Specialization — Coursera', sub: 'By Andrew Ng · 5 courses · ~4 months · Closes PyTorch & DL gap by 70%', impact: '+70% DL' },
-  { icon: '🛠️', title: 'MLOps Fundamentals — Google Cloud', sub: 'Practical MLOps on GCP · 3 weeks · Closes MLOps gap by 60%', impact: '+60% MLOps' },
-  { icon: '🤖', title: 'LLM Engineering Bootcamp — Fast.ai', sub: 'Hands-on LLM & RAG · 6 weeks · Closes GenAI gap by 80%', impact: '+80% GenAI' },
+  { icon: <GraduationCap size={24} color="#7C3AED" />, title: 'Deep Learning Specialization — Coursera', sub: 'By Andrew Ng · 5 courses · ~4 months · Closes PyTorch & DL gap by 70%', impact: '+70% DL' },
+  { icon: <Wrench size={24} color="#06B6D4" />, title: 'MLOps Fundamentals — Google Cloud', sub: 'Practical MLOps on GCP · 3 weeks · Closes MLOps gap by 60%', impact: '+60% MLOps' },
+  { icon: <Cpu size={24} color="#F59E0B" />, title: 'LLM Engineering Bootcamp — Fast.ai', sub: 'Hands-on LLM & RAG · 6 weeks · Closes GenAI gap by 80%', impact: '+80% GenAI' },
 ]
 
 function SkillBar({ name, pct, color }) {
@@ -35,28 +45,46 @@ export default function SkillAnalysis() {
   return (
     <div className="fade-in">
       <div className="db-page-header">
-        <h1>⚡ Skill Gap Analysis</h1>
+        <h1>Skill Gap Analysis</h1>
         <p>Your current skills vs. what top companies require for <strong style={{color:'#9F67FF'}}>Data Scientist</strong> roles.</p>
       </div>
 
       <div className="skill-gap-grid">
         <div className="sg-card strong">
-          <div className="sg-header"><span className="sg-badge green">✅ Strong</span></div>
+          <div className="sg-header">
+            <span className="sg-badge green">
+              <CheckCircle2 size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+              Strong Proficiency
+            </span>
+          </div>
           {STRONG.map(s => <SkillBar key={s.name} {...s} color="var(--green)" />)}
         </div>
         <div className="sg-card improving">
-          <div className="sg-header"><span className="sg-badge amber">🔄 Improving</span></div>
+          <div className="sg-header">
+            <span className="sg-badge amber">
+              <RefreshCw size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+              In Progress
+            </span>
+          </div>
           {IMPROVING.map(s => <SkillBar key={s.name} {...s} color="var(--amber)" />)}
         </div>
         <div className="sg-card gap">
-          <div className="sg-header"><span className="sg-badge red">🎯 Skill Gaps</span></div>
+          <div className="sg-header">
+            <span className="sg-badge red">
+              <AlertCircle size={13} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+              Identified Skill Gaps
+            </span>
+          </div>
           {GAPS.map(s => <SkillBar key={s.name} {...s} color="var(--red)" />)}
         </div>
       </div>
 
       <div className="db-card" style={{marginTop:20}}>
         <div className="db-card-header">
-          <h3>📋 AI Recommendations to Close Your Gaps</h3>
+          <h3>
+            <Sparkles size={18} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+            AI Recommendations to Close Your Gaps
+          </h3>
           <span className="badge-pill purple">Personalized</span>
         </div>
         <div className="ai-recs">

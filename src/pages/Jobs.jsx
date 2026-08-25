@@ -1,4 +1,19 @@
 import { useState } from 'react'
+import {
+  Search,
+  Heart,
+  Star,
+  Clock,
+  CheckCircle2,
+  AlertTriangle,
+  Lightbulb,
+  Briefcase,
+  Building,
+  MapPin,
+  Sparkles,
+  ArrowRight,
+  X
+} from 'lucide-react'
 import './Jobs.css'
 
 const JOBS = [
@@ -50,14 +65,24 @@ function JobCard({ job, onClick }) {
   const [saved, setSaved] = useState(false)
   return (
     <div className={`job-card ${job.featured ? 'featured' : ''}`} onClick={() => onClick(job)}>
-      {job.featured && <div className="job-featured-badge">⭐ Featured</div>}
+      {job.featured && (
+        <div className="job-featured-badge">
+          <Star size={11} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} /> Featured
+        </div>
+      )}
       <div className="jc-top">
         <div className="jc-logo" style={{background: `${job.logoColor}22`, color: job.logoColor}}>{job.logo}</div>
         <div className="jc-title-area">
           <div className="jc-title">{job.title}</div>
           <div className="jc-company">{job.company} · {job.location}</div>
         </div>
-        <button className={`jc-save ${saved ? 'saved' : ''}`} onClick={e => { e.stopPropagation(); setSaved(!saved) }}>{saved ? '❤️' : '🤍'}</button>
+        <button
+          className={`jc-save ${saved ? 'saved' : ''}`}
+          onClick={e => { e.stopPropagation(); setSaved(!saved) }}
+          aria-label="Save Job"
+        >
+          <Heart size={18} fill={saved ? '#EF4444' : 'transparent'} color={saved ? '#EF4444' : '#94A3B8'} />
+        </button>
       </div>
       <p className="jc-desc">{job.desc}</p>
       <div className="jc-tags">
@@ -77,8 +102,13 @@ function JobCard({ job, onClick }) {
         </div>
       </div>
       <div className="jc-dates">
-        <span className="jc-posted">🕐 {job.posted}</span>
-        <span className={`jc-deadline ${parseInt(job.deadline) <= 5 ? 'urgent' : ''}`}>⏳ {job.deadline}</span>
+        <span className="jc-posted">
+          <Clock size={12} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+          {job.posted}
+        </span>
+        <span className={`jc-deadline ${parseInt(job.deadline) <= 5 ? 'urgent' : ''}`}>
+          ⏳ {job.deadline}
+        </span>
       </div>
     </div>
   )
@@ -89,7 +119,9 @@ function JobModal({ job, onClose }) {
   return (
     <div className="job-modal-overlay" onClick={onClose}>
       <div className="job-modal" onClick={e => e.stopPropagation()}>
-        <button className="modal-close" onClick={onClose}>✕</button>
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
+          <X size={16} />
+        </button>
         <div className="jm-header">
           <div className="jm-logo" style={{background: `${job.logoColor}22`, color: job.logoColor}}>{job.logo}</div>
           <div>
@@ -101,19 +133,28 @@ function JobModal({ job, onClose }) {
         <div className="jm-pills">
           {[job.mode, job.type, job.exp, job.salary].map(p => <span key={p} className="jm-pill">{p}</span>)}
         </div>
-        <div className="jm-section"><h4>About the Role</h4><p>{job.desc} This is a fantastic opportunity to work with world-class engineers and data scientists on problems at massive scale.</p></div>
-        <div className="jm-section"><h4>Required Skills</h4><div className="jm-tags">{job.tags.map(t => <span key={t} className="jc-tag">{t}</span>)}</div></div>
-        <div className="jm-section"><h4>Why You're a Match</h4>
+        <div className="jm-section">
+          <h4>About the Role</h4>
+          <p>{job.desc} This is a fantastic opportunity to work with world-class engineers and data scientists on problems at massive scale.</p>
+        </div>
+        <div className="jm-section">
+          <h4>Required Skills</h4>
+          <div className="jm-tags">{job.tags.map(t => <span key={t} className="jc-tag">{t}</span>)}</div>
+        </div>
+        <div className="jm-section">
+          <h4>Why You're a Match</h4>
           <div className="match-reasons">
-            <div className="mr-item">✅ Python skills align perfectly</div>
-            <div className="mr-item">✅ SQL experience matches requirements</div>
-            <div className="mr-item">✅ {job.exp} matches your experience level</div>
-            <div className="mr-item">⚠️ Deep Learning — start learning to increase match to 98%</div>
+            <div className="mr-item"><CheckCircle2 size={14} color="#10B981" style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} /> Python skills align with team stack</div>
+            <div className="mr-item"><CheckCircle2 size={14} color="#10B981" style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} /> SQL data modeling experience matches requirements</div>
+            <div className="mr-item"><CheckCircle2 size={14} color="#10B981" style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} /> {job.exp} matches your experience level</div>
+            <div className="mr-item"><AlertTriangle size={14} color="#F59E0B" style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} /> Deep Learning — complete Coursera module to increase match to 98%</div>
           </div>
         </div>
         <div className="jm-footer">
-          <span className="jc-deadline">{job.deadline}</span>
-          <button className="btn-primary">Apply Now →</button>
+          <span className="jc-deadline">Application closes in {job.deadline}</span>
+          <button className="btn-primary" onClick={() => alert(`Applying to ${job.title} at ${job.company}!`)}>
+            Apply Now →
+          </button>
         </div>
       </div>
     </div>
@@ -136,10 +177,10 @@ export default function Jobs() {
         <div className="jh-orb"></div>
         <div className="container">
           <div className="section-badge">AI-Matched For You</div>
-          <h1>💼 Job Recommendations</h1>
+          <h1>Job Recommendations</h1>
           <p>Personalized matches based on your profile — sorted by compatibility.</p>
           <div className="jobs-search-bar">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <Search size={18} color="#94A3B8" />
             <input type="text" placeholder="Search by job title, company, or skill..." value={search} onChange={e => setSearch(e.target.value)} />
           </div>
         </div>
@@ -158,9 +199,9 @@ export default function Jobs() {
           </div>
           <div className="jobs-filter-card">
             <div className="jf-title">Match Score</div>
-            <label className="jf-check"><input type="checkbox" defaultChecked /> 90%+ (Perfect)</label>
-            <label className="jf-check"><input type="checkbox" defaultChecked /> 80–89% (Great)</label>
-            <label className="jf-check"><input type="checkbox" /> 70–79% (Good)</label>
+            <label className="jf-check"><input type="checkbox" defaultChecked /> 90%+ (High Match)</label>
+            <label className="jf-check"><input type="checkbox" defaultChecked /> 80–89% (Good Match)</label>
+            <label className="jf-check"><input type="checkbox" /> 70–79% (Moderate)</label>
           </div>
           <div className="jobs-filter-card">
             <div className="jf-title">Salary Range</div>
@@ -169,7 +210,9 @@ export default function Jobs() {
             <label className="jf-check"><input type="checkbox" /> ₹40L+</label>
           </div>
           <div className="jobs-filter-card jobs-tip">
-            <div className="jt-title">💡 Pro Tip</div>
+            <div className="jt-title">
+              <Lightbulb size={14} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} /> Pro Tip
+            </div>
             <p>Adding <strong>Deep Learning</strong> to your skills could unlock <strong>4 more high-match jobs</strong>!</p>
           </div>
         </div>

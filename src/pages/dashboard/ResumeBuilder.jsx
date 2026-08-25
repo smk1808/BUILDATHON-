@@ -1,4 +1,12 @@
 import { useState } from 'react'
+import {
+  FileText,
+  Download,
+  Sparkles,
+  CheckCircle2,
+  AlertTriangle,
+  Sliders
+} from 'lucide-react'
 import './ResumeBuilder.css'
 
 export default function ResumeBuilder() {
@@ -16,7 +24,7 @@ export default function ResumeBuilder() {
   return (
     <div className="fade-in">
       <div className="db-page-header">
-        <h1>📄 AI Resume Builder</h1>
+        <h1>AI Resume Builder</h1>
         <p>Generate an ATS-optimized resume tailored to your target role using AI.</p>
       </div>
       <div className="resume-layout">
@@ -41,15 +49,15 @@ export default function ResumeBuilder() {
               </select>
             </div>
             <button className={`btn-primary btn-full ${generating ? 'loading' : ''}`} onClick={handleGenerate} disabled={generating}>
-              {generating ? <><span className="spinner"></span> Generating...</> : '🤖 Generate Resume'}
+              {generating ? <><span className="spinner"></span> Generating...</> : <><Sparkles size={16} style={{ marginRight: 6 }} /> Generate Resume</>}
             </button>
             <button className="btn-outline btn-full" style={{marginTop:10}} onClick={() => window.print()}>
-              📥 Download PDF
+              <Download size={16} style={{ marginRight: 6 }} /> Download PDF
             </button>
           </div>
 
           <div className="db-card" style={{marginTop:16}}>
-            <h3 style={{marginBottom:16,color:'#fff',fontSize:16,fontWeight:700}}>ATS Score</h3>
+            <h3 style={{marginBottom:16,color:'#fff',fontSize:16,fontWeight:700}}>ATS Optimization Score</h3>
             <div className="ats-ring-wrap">
               <svg viewBox="0 0 120 120" width="110" height="110">
                 <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="12"/>
@@ -64,14 +72,26 @@ export default function ResumeBuilder() {
               </svg>
               <div className="ats-center">
                 <div className="ats-num">84</div>
-                <div className="ats-label">ATS</div>
+                <div className="ats-label">ATS Score</div>
               </div>
             </div>
             <div className="ats-tips">
-              <div className="ats-tip good">✅ 18/22 keywords matched</div>
-              <div className="ats-tip warn">⚠️ Add quantified achievements</div>
-              <div className="ats-tip good">✅ Proper heading structure</div>
-              <div className="ats-tip warn">⚠️ Add certifications section</div>
+              <div className="ats-tip good">
+                <CheckCircle2 size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                18/22 keywords matched
+              </div>
+              <div className="ats-tip warn">
+                <AlertTriangle size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                Add quantified achievements
+              </div>
+              <div className="ats-tip good">
+                <CheckCircle2 size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                Clean heading hierarchy
+              </div>
+              <div className="ats-tip warn">
+                <AlertTriangle size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                Include 2+ industry certifications
+              </div>
             </div>
           </div>
         </div>

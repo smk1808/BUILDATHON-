@@ -1,0 +1,42 @@
+.not-found-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+
+.nf-content {
+  max-width: 500px;
+}
+
+.nf-code {
+  font-family: 'Outfit', sans-serif;
+  font-size: 96px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.nf-content h1 {
+  font-size: 28px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+
+.nf-content p {
+  color: var(--text-sub);
+  font-size: 15px;
+  margin-bottom: 24px;
+}
+
+.nf-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}

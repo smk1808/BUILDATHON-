@@ -1,4 +1,17 @@
 import { useState } from 'react'
+import {
+  Search,
+  Heart,
+  Star,
+  BookOpen,
+  Clock,
+  Flame,
+  Zap,
+  Tag,
+  CheckCircle,
+  Sparkles,
+  ArrowRight
+} from 'lucide-react'
 import './Courses.css'
 
 const COURSES = [
@@ -7,7 +20,7 @@ const COURSES = [
     title: 'Deep Learning Specialization',
     provider: 'Coursera', instructor: 'Andrew Ng',
     duration: '4 months', level: 'Intermediate', rating: 4.9, reviews: 142000,
-    price: '₹3,200/mo', badge: '🔥 Top Pick', match: 98,
+    price: '₹3,200/mo', badge: 'Top Pick', match: 98,
     tags: ['TensorFlow', 'CNNs', 'RNNs', 'Transformers'],
     desc: 'Master deep learning, improve AI applications, and advance your career through 5 courses.',
   },
@@ -16,7 +29,7 @@ const COURSES = [
     title: 'Machine Learning A-Z',
     provider: 'Udemy', instructor: 'Kirill Eremenko',
     duration: '6 weeks', level: 'Beginner', rating: 4.7, reviews: 218000,
-    price: '₹499', badge: '💰 Best Value', match: 92,
+    price: '₹499', badge: 'Best Value', match: 92,
     tags: ['Scikit-learn', 'Regression', 'Clustering', 'NLP'],
     desc: 'Learn Machine Learning in Python & R with hands-on exercises and real projects.',
   },
@@ -25,7 +38,7 @@ const COURSES = [
     title: 'LLM Engineering Bootcamp',
     provider: 'Fast.ai', instructor: 'Jeremy Howard',
     duration: '6 weeks', level: 'Advanced', rating: 4.8, reviews: 32000,
-    price: 'Free', badge: '⚡ Trending', match: 95,
+    price: 'Free', badge: 'Trending', match: 95,
     tags: ['LLMs', 'RAG', 'LangChain', 'Fine-tuning'],
     desc: 'Hands-on LLM engineering — build RAG systems, fine-tune models, and deploy GenAI apps.',
   },
@@ -34,7 +47,7 @@ const COURSES = [
     title: 'MLOps Fundamentals on GCP',
     provider: 'Google Cloud', instructor: 'Google Experts',
     duration: '3 weeks', level: 'Intermediate', rating: 4.6, reviews: 18000,
-    price: '₹2,100/mo', badge: '☁️ Cloud', match: 88,
+    price: '₹2,100/mo', badge: 'Cloud', match: 88,
     tags: ['MLOps', 'Vertex AI', 'CI/CD', 'Monitoring'],
     desc: 'Deploy and manage ML models at scale on Google Cloud Platform with production best practices.',
   },
@@ -43,7 +56,7 @@ const COURSES = [
     title: 'Python for Data Science',
     provider: 'DataCamp', instructor: 'Hugo Bowne-Anderson',
     duration: '5 weeks', level: 'Beginner', rating: 4.6, reviews: 95000,
-    price: '₹1,500/mo', badge: '✅ Recommended', match: 90,
+    price: '₹1,500/mo', badge: 'Recommended', match: 90,
     tags: ['Python', 'Pandas', 'Matplotlib', 'NumPy'],
     desc: 'Master Python for data analysis, visualization, and building your first ML models.',
   },
@@ -52,7 +65,7 @@ const COURSES = [
     title: 'SQL for Data Analysis',
     provider: 'Mode Analytics', instructor: 'Scott Teal',
     duration: '2 weeks', level: 'Beginner', rating: 4.5, reviews: 45000,
-    price: 'Free', badge: '🎁 Free', match: 85,
+    price: 'Free', badge: 'Free Course', match: 85,
     tags: ['SQL', 'PostgreSQL', 'Joins', 'Window Fns'],
     desc: 'Master SQL for data analysis — from basic queries to advanced window functions and CTEs.',
   },
@@ -61,7 +74,7 @@ const COURSES = [
     title: 'Statistics for Data Science',
     provider: 'edX', instructor: 'MIT Faculty',
     duration: '8 weeks', level: 'Intermediate', rating: 4.7, reviews: 28000,
-    price: '₹5,500', badge: '🎓 MIT', match: 87,
+    price: '₹5,500', badge: 'MIT Verified', match: 87,
     tags: ['Probability', 'Inference', 'Regression', 'Bayesian'],
     desc: 'Rigorous introduction to statistics as applied to data science and machine learning.',
   },
@@ -70,26 +83,31 @@ const COURSES = [
     title: 'Generative AI with Vertex AI',
     provider: 'Google', instructor: 'Google Cloud Team',
     duration: '4 weeks', level: 'Intermediate', rating: 4.8, reviews: 12000,
-    price: 'Free', badge: '🆕 New', match: 93,
+    price: 'Free', badge: 'New', match: 93,
     tags: ['Gemini', 'Vertex AI', 'Prompt Eng.', 'Image Gen'],
     desc: 'Build generative AI applications using Google\'s Gemini models and Vertex AI platform.',
   },
 ]
 
 const CATEGORIES = [
-  { id: 'all', label: 'All' },
-  { id: 'ml', label: '🤖 Machine Learning' },
-  { id: 'programming', label: '💻 Programming' },
-  { id: 'data', label: '📊 Data & Analytics' },
-  { id: 'cloud', label: '☁️ Cloud & MLOps' },
-  { id: 'genai', label: '✨ GenAI' },
+  { id: 'all', label: 'All Courses' },
+  { id: 'ml', label: 'Machine Learning' },
+  { id: 'programming', label: 'Programming' },
+  { id: 'data', label: 'Data & Analytics' },
+  { id: 'cloud', label: 'Cloud & MLOps' },
+  { id: 'genai', label: 'GenAI & LLMs' },
 ]
 
 function Stars({ rating }) {
   return (
     <div className="stars">
-      {[1,2,3,4,5].map(i => (
-        <span key={i} style={{color: i <= Math.round(rating) ? '#F59E0B' : 'rgba(255,255,255,0.15)'}}>★</span>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <Star
+          key={i}
+          size={14}
+          fill={i <= Math.round(rating) ? '#F59E0B' : 'transparent'}
+          color={i <= Math.round(rating) ? '#F59E0B' : 'rgba(255,255,255,0.2)'}
+        />
       ))}
       <span className="rating-num">{rating}</span>
     </div>
@@ -102,11 +120,19 @@ function CourseCard({ course }) {
     <div className="course-card">
       <div className="cc-top">
         <div className="cc-badges">
-          <span className="cc-badge-badge">{course.badge}</span>
+          <span className="cc-badge-badge">
+            <Sparkles size={12} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+            {course.badge}
+          </span>
           <span className="cc-match">{course.match}% match</span>
         </div>
-        <button className={`cc-save ${saved ? 'saved' : ''}`} onClick={() => setSaved(!saved)} title="Save course">
-          {saved ? '❤️' : '🤍'}
+        <button
+          className={`cc-save ${saved ? 'saved' : ''}`}
+          onClick={() => setSaved(!saved)}
+          title="Save course"
+          aria-label="Bookmark Course"
+        >
+          <Heart size={18} fill={saved ? '#EF4444' : 'transparent'} color={saved ? '#EF4444' : '#94A3B8'} />
         </button>
       </div>
       <h3 className="cc-title">{course.title}</h3>
@@ -123,7 +149,10 @@ function CourseCard({ course }) {
         <Stars rating={course.rating} />
         <span className="cc-reviews">({course.reviews.toLocaleString()})</span>
         <span className="cc-dot">·</span>
-        <span className="cc-info">{course.duration}</span>
+        <span className="cc-info">
+          <Clock size={12} style={{ display: 'inline', marginRight: 4, verticalAlign: 'middle' }} />
+          {course.duration}
+        </span>
         <span className="cc-dot">·</span>
         <span className={`cc-level level-${course.level.toLowerCase().replace("'s",'').split(' ')[0]}`}>{course.level}</span>
       </div>
@@ -151,10 +180,10 @@ export default function Courses() {
         <div className="ch-orb"></div>
         <div className="container">
           <div className="section-badge">Personalized for You</div>
-          <h1>📚 Recommended Courses</h1>
+          <h1>Recommended Courses</h1>
           <p>Curated specifically for your goal: <span className="goal-chip">Data Scientist</span></p>
           <div className="courses-search">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <Search size={18} color="#94A3B8" />
             <input type="text" placeholder="Search courses, skills, or topics..." value={search} onChange={e => setSearch(e.target.value)} />
           </div>
         </div>

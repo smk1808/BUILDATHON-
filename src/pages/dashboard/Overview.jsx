@@ -1,13 +1,25 @@
 import { useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  Briefcase,
+  BookOpen,
+  Target,
+  AlertCircle,
+  FileText,
+  GraduationCap,
+  BrainCircuit,
+  TrendingUp,
+  Sparkles,
+  ArrowRight
+} from 'lucide-react'
 import { useApp } from '../../context/AppContext'
 
 const MARKET_TRENDS = [
-  { label: 'LLM Engineering', growth: '+142% demand', emoji: '🔥' },
-  { label: 'MLOps', growth: '+89% demand', emoji: '📈' },
-  { label: 'RAG Systems', growth: '+76% demand', emoji: '⚡' },
-  { label: 'Prompt Engineering', growth: '+65% demand', emoji: '🎯' },
-  { label: 'Vector Databases', growth: '+58% demand', emoji: '🚀' },
+  { label: 'LLM Engineering', growth: '+142% demand' },
+  { label: 'MLOps', growth: '+89% demand' },
+  { label: 'RAG Systems', growth: '+76% demand' },
+  { label: 'Prompt Engineering', growth: '+65% demand' },
+  { label: 'Vector Databases', growth: '+58% demand' },
 ]
 
 function RadarChart() {
@@ -100,16 +112,16 @@ export default function Overview() {
   return (
     <div className="fade-in">
       <div className="db-page-header">
-        <h1>{greeting}, {user?.name?.split(' ')[0] || 'Arjun'}! 👋</h1>
+        <h1>{greeting}, {user?.name?.split(' ')[0] || 'Arjun'}!</h1>
         <p>Here's your personalized career snapshot for today.</p>
       </div>
 
       <div className="kpi-row">
         {[
-          { icon:'💼', val:'12', label:'Job Matches', trend:'↑ 3 new', t:'up' },
-          { icon:'📚', val:'8', label:'Courses Curated', trend:'↑ Personalized', t:'up' },
-          { icon:'🎯', val:'4', label:'Skills to Acquire', trend:'→ Gap done', t:'neutral' },
-          { icon:'⚡', val:'3', label:'Actions Pending', trend:'! Needs attention', t:'warn' },
+          { icon: <Briefcase size={22} color="#06B6D4" />, val:'12', label:'Job Matches', trend:'↑ 3 new', t:'up' },
+          { icon: <BookOpen size={22} color="#7C3AED" />, val:'8', label:'Courses Curated', trend:'↑ Personalized', t:'up' },
+          { icon: <Target size={22} color="#10B981" />, val:'4', label:'Skills to Acquire', trend:'→ Gap in progress', t:'neutral' },
+          { icon: <AlertCircle size={22} color="#F59E0B" />, val:'3', label:'Actions Pending', trend:'! Needs attention', t:'warn' },
         ].map((k,i) => (
           <div key={i} className="kpi-card">
             <div className="kpi-icon">{k.icon}</div>
@@ -124,7 +136,7 @@ export default function Overview() {
         <div className="db-card">
           <div className="db-card-header">
             <h3>Skill Radar</h3>
-            <span className="badge-pill cyan">Live</span>
+            <span className="badge-pill cyan">Live Data</span>
           </div>
           <RadarChart />
           <div style={{display:'flex',gap:16,justifyContent:'center',marginTop:12}}>
@@ -138,13 +150,13 @@ export default function Overview() {
         </div>
 
         <div className="db-card">
-          <div className="db-card-header"><h3>Today's Actions</h3></div>
+          <div className="db-card-header"><h3>Today's Recommended Actions</h3></div>
           <div className="action-items">
             {[
-              { icon:'📄', cls:'purple', title:'Update your resume', sub:'Add latest project to boost match rate', btn:'Do it', to:'/dashboard/resume' },
-              { icon:'🎓', cls:'cyan', title:'Complete Python ML Module', sub:'62% done · 45 mins remaining', btn:'Continue', to:'/courses' },
-              { icon:'💼', cls:'green', title:'Apply to Flipkart ML Role', sub:'93% match · Deadline in 3 days', btn:'Apply', to:'/jobs' },
-              { icon:'🧠', cls:'amber', title:'Mock Interview: Python DSA', sub:'Scheduled tomorrow 10 AM', btn:'Prep', to:'/dashboard/interview' },
+              { icon: <FileText size={18} color="#7C3AED" />, cls:'purple', title:'Update your resume', sub:'Add latest project to boost match rate', btn:'Do it', to:'/dashboard/resume' },
+              { icon: <GraduationCap size={18} color="#06B6D4" />, cls:'cyan', title:'Complete Python ML Module', sub:'62% done · 45 mins remaining', btn:'Continue', to:'/courses' },
+              { icon: <Briefcase size={18} color="#10B981" />, cls:'green', title:'Apply to Flipkart ML Role', sub:'93% match · Deadline in 3 days', btn:'Apply', to:'/jobs' },
+              { icon: <BrainCircuit size={18} color="#F59E0B" />, cls:'amber', title:'Mock Interview: Python DSA', sub:'Scheduled tomorrow 10 AM', btn:'Prep', to:'/dashboard/interview' },
             ].map((a,i) => (
               <div key={i} className="action-item">
                 <div className={`action-icon ${a.cls}`}>{a.icon}</div>
@@ -161,13 +173,16 @@ export default function Overview() {
 
       <div className="db-card">
         <div className="db-card-header">
-          <h3>🔥 Hot in Your Domain</h3>
+          <h3>
+            <TrendingUp size={18} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+            In-Demand Skills in Your Domain
+          </h3>
           <span className="badge-pill purple">AI & Tech</span>
         </div>
         <div className="market-tags">
           {MARKET_TRENDS.map((t,i) => (
             <div key={i} className="market-tag">
-              <span>{t.emoji}</span>
+              <Sparkles size={14} color="#7C3AED" style={{ marginRight: 6 }} />
               {t.label}
               <span className="tag-growth">{t.growth}</span>
             </div>

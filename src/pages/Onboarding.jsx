@@ -1,28 +1,46 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  User,
+  Wrench,
+  Target,
+  Sparkles,
+  Zap,
+  Briefcase,
+  BookOpen,
+  CheckCircle2,
+  Rocket,
+  Code2,
+  HeartHandshake,
+  Layers,
+  GraduationCap,
+  Building2,
+  DollarSign,
+  Globe
+} from 'lucide-react'
 import { useApp } from '../context/AppContext'
 import './Onboarding.css'
 
 const TECH_SKILLS = ['Python', 'JavaScript', 'Java', 'React', 'SQL', 'Machine Learning', 'Cloud (AWS/GCP)', 'DevOps', 'Data Analysis', 'UI/UX Design', 'Node.js', 'Docker']
 const SOFT_SKILLS = ['Leadership', 'Communication', 'Problem Solving', 'Teamwork', 'Project Management', 'Critical Thinking', 'Creativity', 'Adaptability']
 const DOMAINS = ['Finance', 'Marketing', 'Healthcare', 'Education', 'E-commerce', 'Manufacturing', 'Media', 'Legal']
-const INDUSTRIES = ['🤖 AI & Tech', '💰 FinTech', '🏥 HealthTech', '🛒 E-Commerce', '🎓 EdTech', '🚀 Startups', '🏛️ Government', '🌐 Consulting']
+const INDUSTRIES = ['AI & Tech', 'FinTech', 'HealthTech', 'E-Commerce', 'EdTech', 'Startups', 'Government', 'Consulting']
 const EXP_OPTS = [
-  { val: '0-1', label: '🌱 Fresher', sub: '0–1 yr' },
-  { val: '2-4', label: '🚀 Junior', sub: '2–4 yr' },
-  { val: '5-9', label: '⭐ Mid-level', sub: '5–9 yr' },
-  { val: '10+', label: '👑 Senior', sub: '10+ yr' },
+  { val: '0-1', label: 'Fresher', sub: '0–1 yr' },
+  { val: '2-4', label: 'Junior', sub: '2–4 yr' },
+  { val: '5-9', label: 'Mid-level', sub: '5–9 yr' },
+  { val: '10+', label: 'Senior', sub: '10+ yr' },
 ]
 
 const AI_LOGS = [
-  '🔍 Parsing your profile data...',
-  '🧠 Connecting to LLM Gateway...',
-  '👤 Profile Agent analyzing experience...',
-  '⚡ Skills Analyzer running gap analysis...',
-  '💼 Job Recommender matching opportunities...',
-  '📚 Course Recommender curating learning paths...',
-  '📄 Resume Agent optimizing your resume...',
-  '✅ Career advisory report generated!',
+  'Parsing your profile data...',
+  'Connecting to LLM Gateway...',
+  'Profile Agent analyzing experience...',
+  'Skills Analyzer running gap analysis...',
+  'Job Recommender matching opportunities...',
+  'Course Recommender curating learning paths...',
+  'Resume Agent optimizing your resume...',
+  'Career advisory report generated successfully!',
 ]
 
 export default function Onboarding() {
@@ -84,10 +102,20 @@ export default function Onboarding() {
     }, 600)
   }
 
+  const AGENT_ICONS = [
+    <User size={22} color="#7C3AED" />,
+    <Zap size={22} color="#06B6D4" />,
+    <Briefcase size={22} color="#F59E0B" />,
+    <BookOpen size={22} color="#10B981" />
+  ]
+
   return (
     <div className="onboard-page">
       <div className="onboard-header">
-        <div className="ob-logo" onClick={() => navigate('/')}>Launch<span>Pad</span></div>
+        <div className="ob-logo" onClick={() => navigate('/')}>
+          <Rocket size={18} color="#06B6D4" style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+          Launch<span>Pad</span>
+        </div>
         <div className="step-indicator">
           {Array.from({ length: totalSteps }).map((_, i) => (
             <div key={i} className="si-wrap">
@@ -105,9 +133,11 @@ export default function Onboarding() {
         {/* STEP 1 */}
         {step === 1 && (
           <div className="ob-step fade-up">
-            <div className="ob-step-icon">👤</div>
+            <div className="ob-step-icon">
+              <User size={48} color="#7C3AED" />
+            </div>
             <h2>Tell Us About Yourself</h2>
-            <p>Let's personalize your experience from the ground up.</p>
+            <p>Let's personalize your career experience from the ground up.</p>
             <div className="ob-form">
               <div className="form-row">
                 <div className="form-group">
@@ -158,12 +188,16 @@ export default function Onboarding() {
         {/* STEP 2 */}
         {step === 2 && (
           <div className="ob-step fade-up">
-            <div className="ob-step-icon">🛠️</div>
+            <div className="ob-step-icon">
+              <Wrench size={48} color="#06B6D4" />
+            </div>
             <h2>Your Skills & Interests</h2>
-            <p>Select all that apply — be honest for the best recommendations!</p>
+            <p>Select all that apply — be honest for the best AI recommendations!</p>
             <div className="skill-categories">
               <div className="skill-cat">
-                <div className="skill-cat-title">💻 Technical Skills</div>
+                <div className="skill-cat-title">
+                  <Code2 size={16} style={{ verticalAlign: 'middle', marginRight: 6 }} /> Technical Skills
+                </div>
                 <div className="skill-tags-wrap">
                   {TECH_SKILLS.map(s => (
                     <span key={s} className={`skill-tag ${form.skills.includes(s) ? 'selected' : ''}`} onClick={() => toggleSkill(s)}>{s}</span>
@@ -171,7 +205,9 @@ export default function Onboarding() {
                 </div>
               </div>
               <div className="skill-cat">
-                <div className="skill-cat-title">🎯 Soft Skills</div>
+                <div className="skill-cat-title">
+                  <HeartHandshake size={16} style={{ verticalAlign: 'middle', marginRight: 6 }} /> Soft Skills
+                </div>
                 <div className="skill-tags-wrap">
                   {SOFT_SKILLS.map(s => (
                     <span key={s} className={`skill-tag ${form.skills.includes(s) ? 'selected' : ''}`} onClick={() => toggleSkill(s)}>{s}</span>
@@ -179,7 +215,9 @@ export default function Onboarding() {
                 </div>
               </div>
               <div className="skill-cat">
-                <div className="skill-cat-title">📊 Domain Knowledge</div>
+                <div className="skill-cat-title">
+                  <Layers size={16} style={{ verticalAlign: 'middle', marginRight: 6 }} /> Domain Knowledge
+                </div>
                 <div className="skill-tags-wrap">
                   {DOMAINS.map(s => (
                     <span key={s} className={`skill-tag ${form.skills.includes(s) ? 'selected' : ''}`} onClick={() => toggleSkill(s)}>{s}</span>
@@ -188,7 +226,10 @@ export default function Onboarding() {
               </div>
             </div>
             {form.skills.length > 0 && (
-              <div className="selected-count">✅ {form.skills.length} skill{form.skills.length !== 1 ? 's' : ''} selected</div>
+              <div className="selected-count">
+                <CheckCircle2 size={14} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                {form.skills.length} skill{form.skills.length !== 1 ? 's' : ''} selected
+              </div>
             )}
           </div>
         )}
@@ -196,7 +237,9 @@ export default function Onboarding() {
         {/* STEP 3 */}
         {step === 3 && (
           <div className="ob-step fade-up">
-            <div className="ob-step-icon">🎯</div>
+            <div className="ob-step-icon">
+              <Target size={48} color="#10B981" />
+            </div>
             <h2>Career Aspirations</h2>
             <p>What does your dream career look like?</p>
             <div className="ob-form">
@@ -242,17 +285,19 @@ export default function Onboarding() {
         {/* STEP 4 — AI Analysis */}
         {step === 4 && (
           <div className="ob-step fade-up">
-            <div className="ob-step-icon">🤖</div>
+            <div className="ob-step-icon">
+              <Sparkles size={48} color="#7C3AED" />
+            </div>
             <h2>AI Analysis in Progress</h2>
-            <p>Our agent pipeline is building your personalized career plan...</p>
+            <p>Our multi-agent pipeline is building your personalized career roadmap...</p>
             <div className="analysis-visual">
               <div className="agent-pipeline">
                 {['Profile Agent', 'Skills Analyzer', 'Job Recommender', 'Course Recommender'].map((agent, i) => (
                   <div key={i} className={`agent-node ${analysisStep >= i * 2 ? 'active' : ''} ${analysisStep >= i * 2 + 2 ? 'done' : ''}`}>
                     <div className="agent-pulse"></div>
-                    <div className="agent-icon">{['👤', '⚡', '💼', '📚'][i]}</div>
+                    <div className="agent-icon">{AGENT_ICONS[i]}</div>
                     <div className="agent-name">{agent}</div>
-                    <div className="agent-status">{analysisStep >= i * 2 + 2 ? '✅ Done' : analysisStep >= i * 2 ? '🔄 Running' : '⏳ Waiting'}</div>
+                    <div className="agent-status">{analysisStep >= i * 2 + 2 ? 'Completed' : analysisStep >= i * 2 ? 'Running...' : 'Queued'}</div>
                   </div>
                 ))}
               </div>
@@ -262,7 +307,10 @@ export default function Onboarding() {
               <div className="progress-label">{progress}% complete</div>
               <div className="analysis-log">
                 {logLines.map((line, i) => (
-                  <div key={i} className="log-line" style={{ animationDelay: `${i * 0.1}s` }}>{line}</div>
+                  <div key={i} className="log-line" style={{ animationDelay: `${i * 0.1}s` }}>
+                    <CheckCircle2 size={13} style={{ display: 'inline', marginRight: 6, verticalAlign: 'middle' }} />
+                    {line}
+                  </div>
                 ))}
               </div>
             </div>
@@ -278,7 +326,7 @@ export default function Onboarding() {
           <button className="btn-primary" onClick={nextStep}>Continue →</button>
         )}
         {step === 3 && (
-          <button className="btn-primary" onClick={nextStep}>Analyze My Profile 🚀</button>
+          <button className="btn-primary" onClick={nextStep}>Analyze My Profile →</button>
         )}
         {step === 4 && (
           <div className="analysis-wait">

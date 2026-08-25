@@ -1,5 +1,21 @@
 import { useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import {
+  BrainCircuit,
+  Zap,
+  BookOpen,
+  Briefcase,
+  FileText,
+  Map,
+  UserCheck,
+  Cpu,
+  Target,
+  Rocket,
+  TrendingUp,
+  ArrowRight,
+  Sparkles,
+  Star
+} from 'lucide-react'
 import './Home.css'
 
 function useCountUp(target, duration = 2000, trigger) {
@@ -36,19 +52,19 @@ function StatItem({ target, suffix, label }) {
 }
 
 const FEATURES = [
-  { icon: '🤖', title: 'AI Career Advisor', desc: 'Chat with our intelligent AI advisor for real-time career guidance and personalized next steps.', link: '/advisor', accent: '#7C3AED' },
-  { icon: '⚡', title: 'Skill Gap Analysis', desc: 'Identify your skill level vs. industry demand and get a precise roadmap to close every gap.', link: '/dashboard', accent: '#06B6D4' },
-  { icon: '📚', title: 'Course Recommendations', desc: 'Hand-picked courses from top platforms, matched to your goals, learning style, and schedule.', link: '/courses', accent: '#10B981' },
-  { icon: '💼', title: 'Job Recommendations', desc: 'Get matched with real job openings aligned with your profile, skills, and salary expectations.', link: '/jobs', accent: '#F59E0B' },
-  { icon: '📄', title: 'Resume Builder', desc: 'Generate an ATS-optimized resume tailored to each job application using AI assistance.', link: '/dashboard', accent: '#EF4444' },
-  { icon: '🗺️', title: 'Career Roadmap', desc: 'Visualize your full career journey with milestones, timelines, and actionable steps.', link: '/dashboard', accent: '#8B5CF6' },
+  { icon: <BrainCircuit size={28} color="#7C3AED" />, title: 'AI Career Advisor', desc: 'Chat with our intelligent AI advisor for real-time career guidance and personalized next steps.', link: '/advisor', accent: '#7C3AED' },
+  { icon: <Zap size={28} color="#06B6D4" />, title: 'Skill Gap Analysis', desc: 'Identify your skill level vs. industry demand and get a precise roadmap to close every gap.', link: '/dashboard/skills', accent: '#06B6D4' },
+  { icon: <BookOpen size={28} color="#10B981" />, title: 'Course Recommendations', desc: 'Hand-picked courses from top platforms, matched to your goals, learning style, and schedule.', link: '/courses', accent: '#10B981' },
+  { icon: <Briefcase size={28} color="#F59E0B" />, title: 'Job Recommendations', desc: 'Get matched with real job openings aligned with your profile, skills, and salary expectations.', link: '/jobs', accent: '#F59E0B' },
+  { icon: <FileText size={28} color="#EF4444" />, title: 'Resume Builder', desc: 'Generate an ATS-optimized resume tailored to each job application using AI assistance.', link: '/dashboard/resume', accent: '#EF4444' },
+  { icon: <Map size={28} color="#8B5CF6" />, title: 'Career Roadmap', desc: 'Visualize your full career journey with milestones, timelines, and actionable steps.', link: '/dashboard/roadmap', accent: '#8B5CF6' },
 ]
 
 const STEPS = [
-  { num: '01', icon: '📝', title: 'Create Profile', desc: 'Tell us about your education, skills, interests, and career aspirations.' },
-  { num: '02', icon: '🤖', title: 'AI Analysis', desc: 'Our AI agents analyze your profile against market trends and opportunities.' },
-  { num: '03', icon: '🎯', title: 'Get Matched', desc: 'Receive personalized job, course, and career path recommendations.' },
-  { num: '04', icon: '🚀', title: 'Take Action', desc: 'Follow your roadmap, track progress, and land your dream career.' },
+  { num: '01', icon: <UserCheck size={24} color="#7C3AED" />, title: 'Create Profile', desc: 'Tell us about your education, skills, interests, and career aspirations.' },
+  { num: '02', icon: <Cpu size={24} color="#06B6D4" />, title: 'AI Analysis', desc: 'Our AI agents analyze your profile against market trends and opportunities.' },
+  { num: '03', icon: <Target size={24} color="#10B981" />, title: 'Get Matched', desc: 'Receive personalized job, course, and career path recommendations.' },
+  { num: '04', icon: <Rocket size={24} color="#F59E0B" />, title: 'Take Action', desc: 'Follow your roadmap, track progress, and land your dream career.' },
 ]
 
 const TESTIMONIALS = [
@@ -73,8 +89,8 @@ export default function Home() {
         <div className="hero-inner">
           <div className="hero-content fade-up">
             <div className="hero-badge">
-              <span className="badge-dot"></span>
-              AI-Powered Career Intelligence Platform 🚀
+              <Sparkles size={14} color="#06B6D4" style={{ marginRight: 6 }} />
+              AI-Powered Career Intelligence Platform
             </div>
             <h1 className="hero-title">
               Your <span className="gradient-text">Dream Career</span><br />Starts on LaunchPad
@@ -85,7 +101,7 @@ export default function Home() {
             <div className="hero-actions">
               <button className="btn-primary btn-lg" onClick={() => navigate('/onboarding')}>
                 Start Your Journey
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                <ArrowRight size={18} style={{ marginLeft: 8 }} />
               </button>
               <button className="btn-outline btn-lg" onClick={() => navigate('/advisor')}>
                 Talk to AI Advisor
@@ -101,7 +117,7 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <div className="floating-card fc-1">
-              <span className="fc-icon">🎯</span>
+              <Target size={24} color="#10B981" className="fc-icon" />
               <div>
                 <div className="fc-title">Career Match</div>
                 <div className="fc-sub">92% compatibility</div>
@@ -109,7 +125,7 @@ export default function Home() {
               <div className="fc-score">A+</div>
             </div>
             <div className="floating-card fc-2">
-              <span className="fc-icon">📈</span>
+              <TrendingUp size={24} color="#06B6D4" className="fc-icon" />
               <div style={{flex:1}}>
                 <div className="fc-title">Skill Growth</div>
                 <div className="fc-sub">+34% this month</div>
@@ -117,7 +133,7 @@ export default function Home() {
               </div>
             </div>
             <div className="floating-card fc-3">
-              <span className="fc-icon">💼</span>
+              <Briefcase size={24} color="#7C3AED" className="fc-icon" />
               <div>
                 <div className="fc-title">Job Offers</div>
                 <div className="fc-sub">12 new matches</div>
@@ -147,7 +163,7 @@ export default function Home() {
                 <p>{f.desc}</p>
                 <span className="feature-link">
                   Explore
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                  <ArrowRight size={14} style={{ marginLeft: 6 }} />
                 </span>
               </div>
             ))}
@@ -164,15 +180,15 @@ export default function Home() {
           </div>
           <div className="steps-flow">
             {STEPS.map((s, i) => (
-              <>
-                <div key={s.num} className="step-card">
+              <div key={s.num} className="step-card-container" style={{ display: 'contents' }}>
+                <div className="step-card">
                   <div className="step-num">{s.num}</div>
                   <div className="step-emoji">{s.icon}</div>
                   <h3>{s.title}</h3>
                   <p>{s.desc}</p>
                 </div>
-                {i < STEPS.length - 1 && <div key={`arrow-${i}`} className="step-arrow">→</div>}
-              </>
+                {i < STEPS.length - 1 && <div className="step-arrow">→</div>}
+              </div>
             ))}
           </div>
         </div>
@@ -188,7 +204,11 @@ export default function Home() {
           <div className="testimonials-grid">
             {TESTIMONIALS.map((t, i) => (
               <div key={i} className="testimonial-card">
-                <div className="test-stars">{'★'.repeat(t.rating)}</div>
+                <div className="test-stars">
+                  {Array.from({ length: t.rating }).map((_, idx) => (
+                    <Star key={idx} size={16} fill="#F59E0B" color="#F59E0B" style={{ marginRight: 2 }} />
+                  ))}
+                </div>
                 <p className="test-text">"{t.text}"</p>
                 <div className="test-author">
                   <div className="test-avatar">{t.avatar}</div>

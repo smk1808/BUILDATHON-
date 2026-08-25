@@ -1,0 +1,138 @@
+.profile-page {
+  min-height: 100vh;
+  padding-top: 90px;
+  padding-bottom: 60px;
+}
+
+.profile-header-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.ph-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.ph-avatar {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--purple), var(--cyan));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.4);
+}
+
+.ph-info h2 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.ph-role {
+  font-size: 14px;
+  color: var(--text-sub);
+  margin-bottom: 4px;
+}
+
+.ph-target {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.ph-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.profile-alert-success {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: var(--green);
+  padding: 14px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  animation: fadeUp 0.3s ease;
+}
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 24px;
+  align-items: start;
+}
+
+.profile-form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.profile-skills-box {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.active-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-skill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  color: var(--purple-light);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 10px;
+  border-radius: 100px;
+}
+
+.profile-skill-badge button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.profile-skill-badge button:hover {
+  color: #EF4444;
+}
+
+.add-skill-inline {
+  display: flex;
+  gap: 8px;
+}
+
+.add-skill-inline input {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}

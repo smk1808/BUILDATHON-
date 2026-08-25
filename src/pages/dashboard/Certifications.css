@@ -1,0 +1,250 @@
+.certs-container {
+  padding-bottom: 40px;
+}
+
+.certs-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.earned-certs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.earned-cert-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.earned-cert-card:hover {
+  border-color: var(--purple);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.cert-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cert-icon-wrap {
+  font-size: 28px;
+}
+
+.cert-status-tag {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.cert-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+}
+
+.cert-issuer {
+  font-size: 12px;
+  color: var(--text-sub);
+}
+
+.cert-cred-id {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.cert-cred-id code {
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.1);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cert-skills-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0;
+}
+
+.cert-skill-pill {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 2px 8px;
+  border-radius: 6px;
+  color: var(--text-sub);
+}
+
+.cert-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* RECOMMENDED CERTS */
+.rec-certs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.rec-cert-row {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 16px 20px;
+  transition: all 0.2s ease;
+}
+
+.rec-cert-row:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(124, 58, 237, 0.3);
+}
+
+.rc-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+
+.rc-main {
+  flex: 1;
+}
+
+.rc-title-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.rc-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rc-bump {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(16, 185, 129, 0.15);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.rc-sub {
+  font-size: 12px;
+  color: var(--text-sub);
+  margin-bottom: 8px;
+}
+
+.rc-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.rc-tag {
+  font-size: 11px;
+  color: var(--cyan);
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.15);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.rc-action {
+  flex-shrink: 0;
+}
+
+/* MODAL */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.modal-box {
+  background: var(--bg-card);
+  border: 1px solid rgba(124, 58, 237, 0.3);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 480px;
+  padding: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  animation: fadeUp 0.25s ease;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: var(--text-sub);
+  cursor: pointer;
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .rec-cert-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .rc-action {
+    width: 100%;
+  }
+  .rc-action button {
+    width: 100%;
+  }
+}
