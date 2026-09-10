@@ -53,7 +53,6 @@ export default function Navbar() {
   }, [])
 
   const markAllRead = () => setNotifications(prev => prev.map(n => ({ ...n, unread: false })))
-
   const getNotifIcon = (type) => {
     switch (type) {
       case 'job': return <Briefcase size={18} color="#06B6D4" />
