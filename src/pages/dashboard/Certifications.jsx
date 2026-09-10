@@ -221,6 +221,7 @@ export default function Certifications() {
                   value={newIssuer}
                   onChange={(e) => setNewIssuer(e.target.value)}
                 />
+            
               </div>
               <div className="modal-actions">
                 <button type="button" className="btn-ghost" onClick={() => setShowAddModal(false)}>
