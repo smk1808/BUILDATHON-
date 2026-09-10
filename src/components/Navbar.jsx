@@ -33,7 +33,6 @@ export default function Navbar() {
   const [notifOpen, setNotifOpen] = useState(false)
   const [notifications, setNotifications] = useState(NOTIFICATIONS)
   const notifRef = useRef(null)
-
   const isDashboard = location.pathname.startsWith('/dashboard')
   const isAdvisor = location.pathname === '/advisor'
   const unreadCount = notifications.filter(n => n.unread).length
