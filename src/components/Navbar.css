@@ -8,6 +8,7 @@
   transition: all 0.3s ease;
   background: transparent;
 }
+
 .navbar.scrolled {
   background: rgba(8, 8, 20, 0.85);
   backdrop-filter: blur(20px);
